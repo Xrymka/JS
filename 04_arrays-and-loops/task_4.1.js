@@ -20,3 +20,14 @@ let count = 100;
 // let n = -3;
 // let m = -10;
 // let count = 42;
+
+let dataArray = [];
+
+for (let i = 0; i != count; ++i) {
+    let range = Math.abs(m - n);
+    let numberInRange = Math.min(n, m) + Math.round(Math.random() * range);
+    dataArray.push(numberInRange);
+}
+
+
+console.log(dataArray)

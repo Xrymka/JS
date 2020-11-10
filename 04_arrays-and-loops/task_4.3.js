@@ -7,3 +7,20 @@
 // Для roadMines = [true, false, false, false, false, false, false, false, false, true] вывод: танк переместился на 1, танк повреждён, танк переместился на 2, 3, 4, 5, 6, 7, 8, 9, 10, танк уничтожен.
 // Для roadMines = [false, false, false, true, false, false, false, false, false, false] вывод: танк переместился на 1, 2, 3, 4, танк повреждён, танк переместился на 5, 6, 7, 8, 9, 10.
 // Для roadMines = [false, false, false, false, false, false, false, false, false, false] вывод: танк переместился на 1, 2, 3, 4, 5, 6, 7, 8, 9, 10.
+
+let roadMines = [true, true, true, true, true, true, true, true, true, true];
+let  count = 0;
+for (let position in roadMines) {
+  console.log(`танк переместился на ${parseInt(position) + 1},`)
+  if (roadMines[position] === true) {
+    count += 1;
+    if (count < 2) {
+      console.log('танк повреждён');
+    }
+    else {
+      console.log('танк уничтожен');
+      break;
+    }
+  }
+}
+

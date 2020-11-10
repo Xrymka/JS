@@ -11,3 +11,32 @@
 // 6 января, воскресенье
 // 7 января, понедельник
 // и т.д.
+
+let daysOfWeek = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'];
+let daysOfMonth = [];
+
+let firstDay = 'среда';
+let numberDayOfWeek = 0;
+
+for (let i = 0; i <= 30; ++i) {
+    daysOfMonth[i] = i + 1;
+}
+
+for (let i in daysOfWeek) {
+
+    if (firstDay === daysOfWeek[i]) {
+        numberDayOfWeek = Number(i);
+        break;
+    }
+
+}
+
+for (let i in daysOfMonth) {
+    console.log(`${daysOfMonth[i]} января, ${daysOfWeek[numberDayOfWeek]}.`);
+    numberDayOfWeek++;
+    if (numberDayOfWeek == 7) {
+        numberDayOfWeek = 0;
+    }
+}
+
+
