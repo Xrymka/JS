@@ -23,9 +23,18 @@ function arrayFilterByProperty(list, property, value) {
 	return result;
 }
 
-let result = arrayFilterByProperty(objects, 'name', 'Иван');
-for (val of result) {
-    console.log(val);
-}
+// let result = arrayFilterByProperty(objects, 'name', 'Иван');
+// for (val of result) {
+//     console.log(val);
+// }
+// function arrayFilterByProperty(obj) {
+//     if (obj.name === 'Иван') {
+//         return true;
+//     }
+//     return false;
+//
+// let resultFilter = objects.filter(arrayFilterByProperty);
+
+
 
 // export default {checkedList};
