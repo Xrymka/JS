@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+	<script src="./task_6.3.js"></script>
+  <script src="./task_6.2.js"></script>
+  <script>
+    let arrayList = [
+      {value: 'Значение 1', label: 'Арбузичечка'},
+      {value: 'Значение 2', label: 'Абрикосик'},
+      {value: 'Значение 3', label: 'Персечонок'},
+      {value: 'Значение 4', label: 'Клубничечка'},
+      {value: 'Значение 5', label: 'Земляничечка'},
+      {value: 'Любое значение', label: 'Любое значение'}
+    ]
+    createDropDown(arrayList, 'Значение 5');
+    createDropDown(arrayList, 'Значение 20');
+
+    let array = [1, 'один', 5, 500, 200]
+    createDropDown(convertArray(array), 'один');
+    createDropDown(convertArray(array), 222);
+
+	let object = { value1: 'Значение 1', value2: 'Значение 2', value3: 'Значение 3'}
+	createDropDown(convertArray(object), 'value3');
+	createDropDown(convertArray(object), 'value25');
+  </script>
+</body>
+</html>

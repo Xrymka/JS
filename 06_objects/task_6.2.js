@@ -6,7 +6,24 @@
 // Возвращаемое значение — DOM-элемент select.
 // Создайте базовую html-разметку в файле index.html. В неё поместите получившийся код с помощью <script src="./main.js"></script>. Внутри другого тэга script перед </body> поместите код, который создаст новый select с произвольным массивом значений и поместит его в любое место в body.
 
+function createDropDown (array, chooseValue = array[0].value) {
+  let select = document.createElement('select')
+//   let foundValue = false
 
+  for (i in array) {
+    let option = document.createElement('option')
+    option.innerHTML = array[i].label
+    select.append(option)
 
+    if (array[i].value == chooseValue) {
+      option.selected = true
+    //   foundValue = true
+    }
+  }
+
+//   if (!foundValue) select.firstChild.selected = true
+
+  document.body.append(select)
+}
 
 // export default {checkedList};
