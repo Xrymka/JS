@@ -49,4 +49,15 @@
     container.append(todoItemForm.form);
     container.append(todoList);
   })
+
+  function createTodoItem(name) {
+    let item = document.createElement('li');
+    // кнопки помещаем в элемент, который красиво покажет их в одной группе
+    let buttonGroup = document.createElement('div');
+    let doneButton = document.createElement('button');
+    let deleteButton = document.createElement('button');
+
+    // устанавливаем стили для элемента списка, а также для размещения кнопок в его правой части с помощью flex
+  item.classList.add
+  }
 })();
