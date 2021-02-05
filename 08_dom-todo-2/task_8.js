@@ -38,6 +38,36 @@
     return list;
   }
 
+  function createTodoItem(name) {
+    let item = document.createElement('li');
+    // кнопки помещаем в элемент, который красиво покажет их в одной группе
+    let buttonGroup = document.createElement('div');
+    let doneButton = document.createElement('button');
+    let deleteButton = document.createElement('button');
+
+    // устанавливаем стили для элемента списка, а также для размещения кнопок в его правой части с помощью flex
+  item.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-item-center');
+  item.textContent = name;
+
+  buttonGroup.classList.add('btn-group', 'btn-group-sm');
+  doneButton.classList.add('btn', 'btn-success');
+  doneButton.textContent = 'Готово!';
+  deleteButton.classList.add('btn', 'btn-danger');
+  deleteButton.textContent = 'Удалить';
+
+  // вкладываем кнпоки в отдельный элемент, чтобы объединить в один блок
+  buttonGroup.append(doneButton);
+  buttonGroup.append(deleteButton);
+  item.append(buttonGroup);
+
+  // приложению нужен доступ к самому элементу и кнопкам, чтобы обрабатывать события нажатия
+  return {
+    item,
+    doneButton,
+    deleteButton,
+  };
+  }
+
   document.addEventListener('DOMContentLoaded', function() {
     let container = document.getElementById('todo-app');
 
@@ -48,16 +78,32 @@
     container.append(todoAppTitle);
     container.append(todoItemForm.form);
     container.append(todoList);
-  })
 
-  function createTodoItem(name) {
-    let item = document.createElement('li');
-    // кнопки помещаем в элемент, который красиво покажет их в одной группе
-    let buttonGroup = document.createElement('div');
-    let doneButton = document.createElement('button');
-    let deleteButton = document.createElement('button');
+    // браузер создаёт событие submit на форме по нажатию на Enter или на кнопку создания дела
+    todoItemForm.form.addEventListener('submit', function(e) {
+      e.preventDefault();
 
-    // устанавливаем стили для элемента списка, а также для размещения кнопок в его правой части с помощью flex
-  item.classList.add
-  }
+      // игнорируем создание элемента, если пользователь ничего не ввел
+      if (!todoItemForm.input.value) {
+        return;
+      }
+
+      let todoItem = createTodoItem(todoItemForm.input.value);
+
+      // добавляем обработчики на кнопки
+      todoItem.doneButton.addEventListener ('click', function() {
+        todoItem.item.classList.toggle('list-group-item-success');
+      });
+      todoItem.deleteButton.addEventListener('click', function() {
+        if (confirm('Вы уверены?')) {
+          todoItem.item.remove();
+        }
+      })
+
+      // создаём и добавляем в список новое дело с названием из поля для ввода
+      todoList.append(todoItem.item);
+      // обнуляем значение в поле, чтобы не пришлось стирать его вручную
+      todoItemForm.input.value = '';
+    });
+  });
 })();
