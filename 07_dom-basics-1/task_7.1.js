@@ -8,9 +8,11 @@ document.addEventListener('DOMContentLoaded', function () {
   let intervalId;
 
   function startInterval () {
-    clearInterval(intervalId);
-    timer.textContent = number.value;
-    intervalId = setInterval(currentCount, 1000);
+    if (number.value > 0) {
+      clearInterval(intervalId);
+      timer.textContent = number.value;
+      intervalId = setInterval(currentCount, 1000);
+    } else alert('Wrong value!');
   };
 
   btn.addEventListener('click', startInterval);
